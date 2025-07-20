@@ -27,3 +27,4 @@ function GoalCard({ goal, onUpdate, onDelete }) {
 }
 
 export default GoalCard;
+
