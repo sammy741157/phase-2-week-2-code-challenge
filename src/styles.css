@@ -1,82 +1,53 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #333;
-  margin: 0;
-  padding: 20px;
-}
-
-.app-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1, h2 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-form {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-input, select {
-  display: block;
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background: #2980b9;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #1f6391;
-}
-
-.goal-card {
-  background: #ffffff;
-  border-left: 6px solid #2980b9;
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.progress-bar {
-  background: #eee;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 20px;
-  margin: 10px 0;
-}
-
-.progress-fill {
-  background: #27ae60;
-  height: 100%;
-}
-
-.warning {
-  color: #d35400;
-  font-weight: bold;
-}
-
-.overview-panel {
-  background: #ecf0f1;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .goal-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .progress {
+            height: 100%;
+            border-radius: 10px;
+            background-color: #4CAF50;
+        }
+        .overdue {
+            border-left: 5px solid red;
+        }
+        .warning {
+            border-left: 5px solid orange;
+        }
+        .completed {
+            border-left: 5px solid green;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, select {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .stats {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
