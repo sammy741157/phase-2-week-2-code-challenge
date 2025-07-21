@@ -1,54 +1,41 @@
-import { useEffect, useState } from "react";
-import {
-  fetchGoals,
-  createGoal,
-  updateGoal,
-  deleteGoal,
-} from "./api";
-import GoalCard from "./components/GoalCard";
+import React, {useState, useEffect, use} from "react";
 import GoalForm from "./components/GoalForm";
+import GoalList from "./components/GoalList";
 import DepositForm from "./components/DepositForm";
-import OverviewPanel from "./components/OverviewPanel";
+import Overview from "./components/Overview";
 
 function App() {
-  const [goals, setGoals] = useState([]);
+    const [goals, setGoals] = useState([]);
 
-  useEffect(() => {
-    fetchGoals().then(setGoals);
-  }, []);
+    useEffect(() => {
+        fetch('http://localhost:3001/goals')
+        .then(response => response.json())
+        ,then(setGoals);
+    }, []);
 
-  const handleCreate = async (goalData) => {
-    const newGoal = await createGoal(goalData);
-    setGoals([...goals, newGoal]);
-  };
-
-  const handleUpdate = async (id, updates) => {
-    const updatedGoal = await updateGoal(id, updates);
-    setGoals(goals.map(g => g.id === id ? updatedGoal : g));
-  };
-
-  const handleDelete = async (id) => {
-    await deleteGoal(id);
-    setGoals(goals.filter(g => g.id !== id));
-  };
-
-  return (
-    <div className="app-container">
-      <h1>Smart Goal Planner</h1>
-      <OverviewPanel goals={goals} />
-      <GoalForm onCreate={handleCreate} />
-      <DepositForm goals={goals} onDeposit={handleUpdate} />
-      {goals.map(goal => (
-        <GoalCard
-          key={goal.id}
-          goal={goal}
-          onUpdate={handleUpdate}
-          onDelete={handleDelete}
-        />
-      ))}
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>Goal Tracker</h1>
+            <GoalForm setGoals={setGoals} />
+            <DepositForm setGoals={setGoals} />
+            <Overview goals={goals} />
+            <GoalList goals={goals} setGoals={setGoals} />
+        </div>
+    );
 }
 
+const useFetchGoals = () => {
+    const [goals, setGoals] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/goals')
+            .then(response => response.json())
+            .then(setGoals);
+    }, []);
+
+    return goals;
+};
+
+const API_URL = 'http://localhost:3001/goals';
+
 export default App;
-import './styles.css';
